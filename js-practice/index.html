@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Practice</title>
+    <style media="screen">
+      body {
+        display:flex;
+        min-height:100%;
+        flex-direction: column;
+      }
+
+      .filltext {
+        height:100%;
+        width:100%;
+        background: black;
+        flex:1;
+        justify-content: center;
+        display:flex;
+      }
+
+      #description {
+        font-family: Helvetica;
+        font-weight: 800;
+        color: #8e2b88;
+        -webkit-text-fill-color: transparent;
+        background: -webkit-gradient(linear,left top,left bottom,from(#ff0052),to(#8e2b88));
+        background: -o-gradient(linear,left top,left bottom,from(#ff0052),to(#8e2b88));
+        -webkit-background-clip: text;
+        margin:0;
+        padding:0;
+        flex:1;
+     }
+    </style>
+  </head>
+  <body>
+    <div class='filltext'>
+      <!-- This text will fill the screen, no matter what screen size-->
+      <p id='description'>This text is supposed to fill the screen no matter what size</p>
+    </div>
+    <script>
+      var direction = 1
+      function makeTextFillScreen () {
+        console.log('runs once')
+        var text = document.getElementById('description')
+        var parentHeight = text.parentNode.clientHeight
+        var windowHeight = window.innerHeight
+                           || document.documentElement.clientHeight
+                           || document.body.clientHeight;
+        if ((parseInt(text.parentNode.style.height) >= windowHeight)
+             || parseInt(text.parentNode.style.height) <= 0) {
+          direction = direction * -1
+        }
+        text.parentNode.style.height = parentHeight + direction * 2 + 'px'
+        text.style.fontSize = parentHeight/8 + 'px'
+        window.addEventListener("resize", resizeOnResize, true);
+        window.requestAnimationFrame(makeTextFillScreen)
+      }
+
+      function resizeOnResize () {
+        makeTextFillScreen()
+        console.log('Window resized!')
+      }
+
+      window.requestAnimationFrame(makeTextFillScreen)
+    </script>
+  </body>
+</html>
