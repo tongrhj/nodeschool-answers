@@ -1,0 +1,123 @@
+// Exercise 12 While Loop
+
+$i: 1;
+@while $i < 7  {
+  h#{$i} { font-size: 24px - 3px * $i; }
+  $i: $i + 1;
+}
+
+// Exercise 11 For Loop
+
+// @for $i from 1 through 6 {
+//   h#{$i} {
+//     font-size: 24px - 3px * $i;
+//   }
+// }
+
+// Exercise 10 Each Iterator
+
+// @each $big-cat in cheetah, puma, jaguar, panther, tiger, leopard {
+//   .#{$big-cat}-picture {
+//     padding: 3em;
+//   }
+// }
+
+// Exercise 9 Interpolation
+
+// $selector: article;
+//
+// #{$selector} {
+//   color: #f00;
+// }
+
+// Exercise 8 Parent Selector
+
+// button {
+//   color: black;
+//   &:focus { color: red; }
+// }
+
+// Exercise 7 Nested Properties
+
+// .sassy {
+//   border: {
+//     width: 10px;
+//     color: red;
+//     radius: 5px;
+//   }
+// }
+
+
+// Exercise 6 Operators
+
+// $page-width: 1400px;
+// $padding: 20px;
+//
+// .container {
+//   padding: $padding;
+//   width: 0.8 * $page-width - $padding * 2;
+// }
+
+// Exercise 5 Extend Inheritance
+
+// .push-button {
+//   background-color: blue;
+// }
+
+// .main-button {
+//   @extend .push-button;
+//   font-weight: bold;
+// }
+
+// Exercise 4 Mixin Content
+
+// @mixin border-thickness {
+//   @content;
+// }
+
+// @include border-thickness {
+//   img {
+//     border-width: 10px;
+//     border-style: solid;
+//   }
+// }
+
+// answer key
+// @mixin border($thickness) {
+//   border-width: $thickness;
+//   @content;
+// }
+
+// img {
+//   @include border(10px) {
+//     border-style: solid;
+//   }
+// }
+
+// Exercise 3 Mixins
+
+// @mixin border-thickness($thickness) {
+//   border-width: $thickness;
+// }
+//
+// img { @include border-thickness(10px); }
+
+// Exercise 2 Nesting
+
+// aside {
+//   ul {
+//     margin: 0;
+//   }
+//
+//   a {
+//     color: red;
+//   }
+// }
+
+// Exercise 1 Variables
+//
+// $color: #000;
+//
+// body {
+//   color: $color
+// }
